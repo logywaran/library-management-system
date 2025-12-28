@@ -105,22 +105,27 @@ The goal of this project is **learning backend engineering practices**, not UI f
 
 ---
 
-## ▶️ Running Locally
+▶️ Running Locally
+Without Docker
 
-### Without Docker
-```bash
 mvn clean package
 java -jar target/*.jar
+
 Access: http://localhost:8080
+
+---
 
 With Docker
-bash
-Copy code
+
 docker build -t library-management .
 docker run -p 8080:8080 library-management
+
 Access: http://localhost:8080
 
+---
+
 🗄️ H2 Database Console
+
 URL: http://localhost:8080/h2-console
 
 JDBC URL: jdbc:h2:mem:librarydb
@@ -129,11 +134,13 @@ Username: sa
 
 Password: (empty)
 
-Note: H2 data resets when the application restarts.
+⚠️ Note: H2 is an in-memory database.
+All data resets when the application restarts.
+
+---
 
 📁 Project Structure
-css
-Copy code
+
 src/main/java
  ├── controller
  ├── service
@@ -148,8 +155,10 @@ src/main/resources
      ├── css/
      └── js/
 
+---
 
 🔮 Future Enhancements (Optional)
+
 Swagger / OpenAPI documentation
 
 Authentication (JWT / Basic Auth)
@@ -158,6 +167,9 @@ PostgreSQL or MySQL integration
 
 CI/CD with GitHub Actions
 
+---
+
 👨‍💻 Author
+
 Logesh Waran
 Aspiring Java Backend Developer
