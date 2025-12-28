@@ -2,8 +2,7 @@
 
 A lightweight **Library Management System** built with **Spring Boot** and **Vanilla JavaScript**, focused on backend fundamentals, clean architecture, Docker containerization, and real-world deployment.
 
-🌐 **Live Application**  
-https://library-management-system-u46t.onrender.com/
+🌐 **Live Application** [https://library-management-system-u46t.onrender.com/](https://library-management-system-u46t.onrender.com/)
 
 ---
 
@@ -51,6 +50,7 @@ The goal of this project is **learning backend engineering practices**, not UI f
 - **Separation of Concerns**
 
 ### Layered Structure
+
 - **Controller** – Handles HTTP requests and responses
 - **Service** – Contains all business logic
 - **Repository** – Database access using Spring Data JPA
@@ -61,115 +61,98 @@ The goal of this project is **learning backend engineering practices**, not UI f
 
 ## 🔌 REST API Endpoints
 
-| Method | Endpoint              | Description               |
-|------|----------------------|---------------------------|
-| POST | `/books`             | Add a new book            |
-| GET  | `/books`             | Fetch all books           |
-| PUT  | `/books/{id}`        | Update book details       |
-| PUT  | `/books/{id}/borrow` | Borrow a book             |
-| PUT  | `/books/{id}/return` | Return a book             |
-| DELETE | `/books/{id}`      | Delete a book             |
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| **POST** | `/books` | Add a new book |
+| **GET** | `/books` | Fetch all books |
+| **PUT** | `/books/{id}` | Update book details |
+| **PUT** | `/books/{id}/borrow` | Borrow a book |
+| **PUT** | `/books/{id}/return` | Return a book |
+| **DELETE** | `/books/{id}` | Delete a book |
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Backend
-- Java 17
-- Spring Boot 3.x
-- Spring Data JPA
-- Hibernate
+- **Java 17**
+- **Spring Boot 3.x**
+- **Spring Data JPA**
+- **Hibernate**
 
 ### Database
-- **H2 In-Memory Database**
-- Used for simplicity and easy deployment
+- **H2 In-Memory Database** (Default)
 - Can be switched to MySQL/PostgreSQL easily
 
 ### Frontend
-- HTML5
-- CSS3
+- HTML5, CSS3
 - Vanilla JavaScript (ES6)
 
 ### DevOps
-- Docker (multi-stage build)
-- Render (Docker deployment)
+- **Docker** (multi-stage build)
+- **Render** (deployment platform)
 
 ---
 
 ## 🐳 Docker
 
-- Multi-stage Docker build
-- Build stage compiles the JAR using Maven
-- Runtime stage runs the application using a lightweight JRE
-- Backend and frontend are packaged into a single container
+This project uses a **multi-stage Docker build**:
+1. **Build stage**: Compiles the source code into a JAR using Maven.
+2. **Runtime stage**: Runs the application using a lightweight JRE.
+3. Both backend and frontend assets are packaged into a single container for easy deployment.
 
 ---
 
-▶️ Running Locally
-Without Docker
+## ▶️ Running Locally
 
-mvn clean package
-java -jar target/*.jar
+💻 Option 1: Without Docker
+Ensure you have Java 17 and Maven installed on your machine.
 
-Access: http://localhost:8080
+Build the project: mvn clean package
+
+Run the JAR file: java -jar target/*.jar
+
+Access the application at: http://localhost:8080
+
+🐳 Option 2: With Docker
+If you have Docker installed, you can run the entire setup with two commands:
+
+Build the image: docker build -t library-management .
+
+Run the container: docker run -p 8080:8080 library-management
+
+Access the application at: http://localhost:8080
 
 ---
 
-With Docker
+## 🗄️ H2 Database Console
+The application uses an in-memory database for development. You can view the data while the app is running:
 
-docker build -t library-management .
-docker run -p 8080:8080 library-management
-
-Access: http://localhost:8080
-
----
-
-🗄️ H2 Database Console
-
-URL: http://localhost:8080/h2-console
+Console URL: http://localhost:8080/h2-console
 
 JDBC URL: jdbc:h2:mem:librarydb
 
 Username: sa
 
-Password: (empty)
+Password: (leave blank)
 
-⚠️ Note: H2 is an in-memory database.
-All data resets when the application restarts.
-
----
-
-📁 Project Structure
-
-src/main/java
- ├── controller
- ├── service
- ├── repository
- ├── model
- ├── dto
- └── exception
-
-src/main/resources
- └── static
-     ├── index.html
-     ├── css/
-     └── js/
+Note: Because this is an In-Memory database, all data (books and borrowing records) will be deleted whenever the application or Docker container stops.
 
 ---
 
-🔮 Future Enhancements (Optional)
 
-Swagger / OpenAPI documentation
+     
+## 🔮 Future Enhancements
 
-Authentication (JWT / Basic Auth)
+[ ] Swagger / OpenAPI documentation for testing
 
-PostgreSQL or MySQL integration
+[ ] Security layer using JWT or Basic Auth
 
-CI/CD with GitHub Actions
+[ ] Integration with a persistent database like PostgreSQL
+
+[ ] Automated CI/CD pipelines using GitHub Actions
 
 ---
 
-👨‍💻 Author
-
-Logesh Waran
-Aspiring Java Backend Developer
+## 👨‍💻 Author
+Logesh Waran Aspiring Java Backend Developer
